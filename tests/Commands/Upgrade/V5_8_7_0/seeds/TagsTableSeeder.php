@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Commands\Upgrade\V5_8_7_0\Seeds;
+
 use Illuminate\Database\Seeder;
 
 class TagsTableSeeder extends Seeder
@@ -11,7 +13,8 @@ class TagsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('tags')->insert([
+        \DB::table('tags')->truncate();
+        \DB::table('tags')->insert([
             [
                 'id'         => 1,
                 'name'       => 'laravel',

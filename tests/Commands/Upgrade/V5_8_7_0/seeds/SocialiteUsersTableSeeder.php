@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Commands\Upgrade\V5_8_7_0\Seeds;
+
 use Illuminate\Database\Seeder;
 
 class SocialiteUsersTableSeeder extends Seeder
@@ -11,7 +13,8 @@ class SocialiteUsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('socialite_users')->insert([
+        \DB::table('socialite_users')->truncate();
+        \DB::table('socialite_users')->insert([
             [
                 'id'                           => 1,
                 'socialite_client_id'          => 1,

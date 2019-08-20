@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Commands\Upgrade\V5_8_7_0\Seeds;
+
 use Illuminate\Database\Seeder;
 
 class CommentsTableSeeder extends Seeder
@@ -11,7 +13,8 @@ class CommentsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('comments')->insert([
+        \DB::table('comments')->truncate();
+        \DB::table('comments')->insert([
             [
                 'id'                => 1,
                 'socialite_user_id' => 1,

@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Commands\Upgrade\V5_8_7_0\Seeds;
+
 use Illuminate\Database\Seeder;
 
 class FriendshipLinksTableSeeder extends Seeder
@@ -11,7 +13,8 @@ class FriendshipLinksTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('friendship_links')->insert([
+        \DB::table('friendship_links')->truncate();
+        \DB::table('friendship_links')->insert([
             [
                 'id'         => 1,
                 'name'       => '白俊遥博客',

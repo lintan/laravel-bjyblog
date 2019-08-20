@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Commands\Upgrade\V5_8_7_0\Seeds;
+
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
@@ -11,6 +13,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        \DB::table('users')->truncate();
+
         \DB::table('users')->insert([
             [
                 'id'             => 1,
