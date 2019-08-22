@@ -44,7 +44,7 @@ class TagController extends Controller
         $id = Tag::create($request->only('name'));
 
         if ($request->ajax()) {
-            $data['id'] = $id;
+            $data = $id;
 
             return ajax_return(200, $data);
         }

@@ -153,7 +153,7 @@
                                     <div class="input-group">
                                         <input type="text" class="form-control" placeholder="Search for..." name="wd" value="{{ request()->input('wd') }}">
                                         <span class="input-group-btn">
-                                      <button class="btn btn-default" type="button">Go!</button>
+                                      <button class="btn btn-default" type="submit">搜索</button>
                                     </span>
                                     </div>
                                 </form>

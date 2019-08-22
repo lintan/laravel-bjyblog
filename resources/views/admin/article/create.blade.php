@@ -8,6 +8,9 @@
         #bjy-content{
             z-index: 1000;
         }
+        .js-add-tag{
+            margin:0;
+        }
     </style>
 @endsection
 
@@ -60,9 +63,9 @@
                 <th>{{ __('Tag') }}</th>
                 <td>
                     @foreach($tag as $v)
-                        {{ $v['name'] }}<input class="bjy-icheck" type="checkbox" name="tag_ids[]" value="{{ $v['id'] }}" @if(in_array($v['id'], old('tag_ids', []))) checked="checked" @endif> &emsp;
+                       <label> {{ $v['name'] }}<input class="bjy-icheck" type="checkbox" name="tag_ids[]" value="{{ $v['id'] }}" @if(in_array($v['id'], old('tag_ids', []))) checked="checked" @endif> &emsp;</label>
                     @endforeach
-                    <i class="fa fa-plus-square" style="font-size: 20px;cursor: pointer" data-toggle="modal" data-target="#bjy-tag-modal"></i>
+                    <i class="fa fa-plus-square" style="font-size: 20px;cursor: pointer;vertical-align: middle;" data-toggle="modal" data-target="#bjy-tag-modal"></i>
                 </td>
             </tr>
             <tr>
@@ -124,7 +127,7 @@
                 </div>
                 <div class="modal-body text-center">
                     <form class="form-inline" role="form">
-                        <input class="form-control bjy-tag-name" type="text" placeholder="{{ __('Name') }}">
+                        <input class="form-control bjy-tag-name" type="text" placeholder="{{ __('Tag Name') }}">
                         <button type="button" class="btn btn-success js-add-tag">{{ __('Submit') }}</button>
                     </form>
                 </div>
@@ -175,7 +178,7 @@
                 dataType: 'json',
                 data: postData,
                 success: function (response) {
-                    var redioStr = response.name+'<input class="bjy-icheck" type="checkbox" name="tag_ids[]" value="'+response.id+'" checked="checked"> &emsp;';
+                    var redioStr = '<label>'+response.name+'<input class="bjy-icheck" type="checkbox" name="tag_ids[]" value="'+response.id+'" checked="checked"> &emsp;</label>';
                     $('.fa-plus-square').before(redioStr);
                     icheckInit();
                     $('#bjy-tag-modal').modal('hide');
